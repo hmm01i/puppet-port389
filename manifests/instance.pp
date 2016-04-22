@@ -136,7 +136,7 @@ define port389::instance (
         notify    => Service[ $servicename ],
       }
 
-      notify {"Disable selinux config is ${disable_selinux_config}": }
+      notify {"Disable selinux config is ${disable_selinux_config} for ${title}": }
       if $disable_selinux_config {
         notify {'Running sed exec': } ->
         exec { 'disable selinux with sed':
@@ -150,7 +150,7 @@ define port389::instance (
         notify {'Ran sed exec': }
       }
 
-      notify {"Disable systemd config is ${disable_systemd_config}": }
+      notify {"Disable systemd config is ${disable_systemd_config} for ${title}": }
       if $disable_systemd_config {
         notify {'Running sed exec systemd': } ->
         exec { 'disable systemd with sed':

@@ -7,6 +7,7 @@ define port389::instance::ssl (
   $ssl_cert,
   $ssl_key,
   $ssl_ca_certs,
+  $ssl3             = 'off'
 ) {
   validate_string($root_dn)
   validate_string($root_dn_pwd)
